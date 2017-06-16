@@ -1,0 +1,210 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #fff;
+	color: #555;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+}
+.layer{
+	width: 100%;
+	height: 600px;
+	position: absolute;
+	top: 50%;
+	margin-top: -300px;
+	background-color: #000;
+	z-index: 9999;
+	opacity: 0.9;
+}
+.layer-top{
+	width: 700px;
+	height: 200px;
+	position: absolute;
+	top: 50%;
+	margin-top: -100px;
+	z-index: 10000;
+	right: 50%;
+	margin-right: -350px;
+}
+.layer-top .text{
+	padding-top: 20px;
+	font-family: "微软雅黑";
+	font-size: 45px;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+}
+.layer-top button{
+	width: 200px;
+	height: 60px;
+	background-color: #ff8c00;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	border-radius: 8px;
+	margin-left: 250px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+.wrap{
+	width: 100%;
+	height: 600px;
+	position: absolute;
+	top: 50%;
+	margin-top: -300px;
+	background-color: #333;
+	overflow: hidden;
+
+	-webkit-perspective :800px;
+	-webkit-transition: all 0.6s;
+	-moz-perspective :800px;
+	-moz-transition: all 0.6s;
+}
+/*海报样式*/
+.photo{
+	width: 260px;
+	height: 320px;
+	position: absolute;
+	box-shadow: 0 0 1px rgba(0,0,0,.01);
+	z-index: 1;
+	-webkit-transition: all .6s;
+	-moz-transition: all .6s;
+}
+.photo .side{
+	width: 260px;
+	height: 320px;
+	background-color: #eee;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	padding: 20px;
+}
+.side-front{}
+.side-front .image{
+	width: 100%;
+	height: 250px;
+	line-height: 250px;
+	overflow: hidden;
+}
+.side-front .image img{
+	width: 100%;
+	height: 100%;
+}
+.side-front .caption{
+	text-align: center;
+	font-size: 16px;
+	line-height: 50px;
+}
+.side-back{}
+.side-back .desc{
+	color: #666;
+	font-size: 14px;
+	line-height: 1.5em;
+}
+/*选中海报样式*/
+.photo_center{
+	left: 50%;
+	top: 50%;
+	margin: -160px 0 0 -130px;
+	z-index: 999;
+}
+/*负责翻转*/
+.photo-wrap{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: all .6s;
+	-moz-transform-style: preserve-3d;
+	-moz-transition: all .6s;
+}
+.photo-wrap .side-front{
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+}
+.photo-wrap .side-back{
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+}
+.photo-wrap .side{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+}
+/*控制按钮样式*/
+@font-face{
+	font-family: 'icons';
+	src: url('../fonts/icons.woff') format('woff');
+	font-weight: normal;
+	font-size: normal; 
+}
+.nav{
+	width: 80%;
+	height: 30px;
+	line-height: 30px;
+	position: absolute;
+	left: 10%;
+	bottom: 20px;
+	z-index: 999;
+	text-align: center;
+}
+.nav .i{
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	cursor: pointer;
+	background-color: #aaa;
+	text-align: center;
+	border-radius: 50%;
+	position: relative;
+	-webkit-transform: scale(.48);
+	-webkit-transition: all .5s;
+	-moz-transform: scale(.48);
+	-moz-transition: all .5s;
+}
+.nav .i:after{
+	content: "\e600";
+	font-family: 'icons';
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: 0;
+	color: #fff;
+	opacity: 0;
+}
+.nav .i_current{
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+}
+.nav .i_current:after{
+	opacity: 1;
+}
+.nav .i_back{
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	background-color: #555;
+}
+/*样式优化*/
+.photo{
+	left: 50%;
+	top: 50%;
+	margin: -160px 0 0 -130px;
+}
+.photo-wrap{
+	-webkit-transform-origin: 0% 50%;
+	-moz-transform-origin: 0% 50%;
+}
+.photo-front .photo-wrap{
+	-webkit-transform:translate(0px , 0px) rotateY(0deg);
+	-moz-transform:translate(0px , 0px) rotateY(0deg);
+} 
+.photo-back .photo-wrap{
+	-webkit-transform:translate(260px , 0px) rotateY(180deg);
+	-moz-transform:translate(260px , 0px) rotateY(180deg);
+} 

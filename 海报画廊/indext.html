@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>海报画廊</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="style/reset.css">
+</head>
+<body onselectstart="return false;">
+	<div class="layer"></div>
+	<div class="layer-top">
+		<div class="text">Is Xioazei Yan the coolest man in the world?</div>
+		<button id="button">Absolutely right</button>
+	</div>
+	<div class="wrap" id="wrap">
+		<!--photo负责平移、旋转-->
+		<div class="photo photo-front" onclick="turn(this)" id="photo_{{index}}">
+			<!--photo-wrap负责翻转-->
+			<div class="photo-wrap">
+				<div class="side side-front">
+					<p class="image"><img src="images/{{img}}" alt="img"></p>
+					<p class="caption">{{caption}}</p>
+				</div>
+				<div class="side side-back">
+					<p class="desc">{{desc}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="images/data.js"></script>
+	<script type="text/javascript" src="script/index.js"></script>
+</body>
+</html>
